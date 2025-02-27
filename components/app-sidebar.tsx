@@ -24,6 +24,8 @@ import {
   SidebarGroupContent,
 } from "@/components/ui/sidebar"
 
+import { useSession } from "next-auth/react"
+
 // Menu items.
 const items = [
   {
@@ -53,10 +55,13 @@ const items = [
   },
 ]
 
+const username = useSession().data?.user?.name as string;
+const email = useSession().data?.user?.email as string;
+
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: username,
+    email: email,
   },
 }
 
