@@ -55,17 +55,18 @@ const items = [
   },
 ]
 
-const username = useSession().data?.user?.name as string;
-const email = useSession().data?.user?.email as string;
-
-const data = {
-  user: {
-    name: username,
-    email: email,
-  },
-}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const username = useSession().data?.user?.name as string;
+  const email = useSession().data?.user?.email as string;
+
+
+  const data = {
+    user: {
+      name: username,
+      email: email,
+    },
+  }
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
